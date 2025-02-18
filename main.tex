@@ -1,0 +1,109 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains,shapes.geometric,shapes.arrows,calc}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{physics}
+\setlist[itemize]{nosep}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{Computational Imaging}
+\author{Matteo Galiazzo}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+Image processing is the field of enhancing the images by tuning many parameters and features of the images.
+Image processing is the subset of computer vision.
+Here, transformations are applied to an input image and the resultant output image is returned.
+In computer vision we extract insights from images and videos, input can be both image and video, and the output can be an interpretation, which is often non-visual.
+In image processing input and output are both images, and the operations are at low-level and affect pixels within the image.
+
+A continuous image is a function $f:\omega \in \mathbb{R}^2 \rightarrow R$.
+A discrete image $A$ is a matrix of size $M \times N$ obtained by discretizing the function f.
+The intersection between a row and a column is called pixel.
+The value assigned to every pixel is the average brightness in the pixel rounded to the nearest integer value.
+The process of representing the amplitude of the $2D$ signal at a given coordinate as an integer value with $L$ different gray levels is usually referred to as amplitude quantization.
+
+Many techniques developed for the single channel image are repeated on the three channels.
+Different manipulating operations can be performed on the images, such as:
+\begin{itemize}
+  \item Transforming the color space.
+  \item Applying fine transformations.
+  \item Create cartoonized images.
+  \item Object detection using colors in HSV.
+\end{itemize}
+
+Computational algorithms are essential to convert data to images, since sensors almost never directly generate usable images.
+
+The reconstruction algorithm necessarily requires the solution of an inverse problem.
+We call two problems inverse one another if the formulation of the each involves part or all the formulation of the other.
+The problem that is more extensively studied is usually called forward (or direct), the other is called inverse.
+The direct problem is usually oriented along a cause-effect, in the sense that it computes the effect given the cause.
+The inverse problem is associated with the reversal of the cause-effect and consists in finding the causes given the effects.
+In direct problems usually there is a loss of information from the input to the output.
+Hence, in the solution of the inverse problem it is impossible to recover the object exactly, due to the information lost in the direct one.
+
+Linear inverse imaging problems are characterized by a linear model describing the relationship between the measured data $y$ and the unknown object $x$.
+The direct linear model can be expressed as: $Ax = y$, where $A$ is a matrix representing the linear operator acting on the image $x$ to generate the data $y$.
+The data $y$ are usually affected by noise, due to different physical processes.
+For the moment, we can consider addittive noise so that the final linear model is: $Ax = y+e$.
+This is the model we want to invert.
+The noise is a random process described by a random variable.
+Different random processes can corrupt the data $y$, represented by random variables with different probability distributions.
+
+
+
+\end{document}
